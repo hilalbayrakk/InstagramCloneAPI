@@ -7,6 +7,10 @@ namespace InstagramCloneAPI.Model
        public string Password { get; set; }
        public bool IsBlocked { get; set; }
        public bool IsProvided { get; set; }
+       public bool IsVisibility { get; set; }
+
+
+       public virtual ICollection<User>Users { get; set; }
         
     }
 }

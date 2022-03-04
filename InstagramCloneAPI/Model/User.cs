@@ -10,10 +10,9 @@ namespace InstagramCloneAPI.Model
         public virtual Gender Gender { get; set; }
         public int AccountId { get; set; }
         public virtual Account Account { get; set; }
-        public int PostId { get; set; }
-        public virtual Post Post { get; set; }
-
+      
 
         public virtual ICollection<Post>Posts { get; set; }
+         public virtual ICollection<Comment>Comments { get; set; }
     }
 }
