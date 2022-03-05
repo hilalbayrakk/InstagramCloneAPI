@@ -62,11 +62,101 @@ namespace InstagramCloneAPI.Context
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Name).IsRequired();
                 entity.Property(e => e.SurName).IsRequired();
-                entity.Property(e => e.BirthDate).IsRequired();
+                entity.Property(e => e.BirthDate);
                 entity.HasOne(p => p.Gender).WithMany(c => c!.Users).HasForeignKey(p => p.GenderId);
                 entity.HasOne(p => p.Account).WithMany(c => c!.Users).HasForeignKey(p => p.AccountId);
 
             });
+            modelBuilder.Entity<Account>().HasData(
+                new Account
+                {
+                    Id = 1,
+                    Email = "hilal@gmail.com",
+                    Password = "01234",
+                    IsBlocked = false,
+                    IsProvided = true,
+                    IsVisibility = true
+                },
+                new Account
+                {
+                    Id = 2,
+                    Email = "mustafa@gmail.com",
+                    Password = "56789",
+                    IsBlocked = false,
+                    IsProvided = true,
+                    IsVisibility = true
+                }
+            );
+            modelBuilder.Entity<Comment>().HasData(
+                new Comment
+                {
+                    Id = 1,
+                    Description = "Çok güzel",
+                    IsActive = true,
+                    UserId = 1,
+                    PostId = 1
+                },
+                 new Comment
+                {
+                    Id = 2,
+                    Description = "Çok çirkin",
+                    IsActive = true,
+                    UserId = 2,
+                    PostId = 2
+                }
+            );
+            modelBuilder.Entity<Gender>().HasData(
+                new Gender
+                {
+                    Id = 1,
+                    Name = "Kız"
+                },
+                 new Gender
+                {
+                    Id = 2,
+                    Name = "Erkek"
+                }
+            );
+            modelBuilder.Entity<Post>().HasData(
+                new Post
+                {
+                    Id = 1,
+                    Description = "Yeni foto",
+                    ImageURL ="Url",
+                    Latitude = "1",
+                    Longtitude ="1",
+                    Like =true,
+                    UserId = 1
+                },
+                new Post
+                {
+                    Id = 2,
+                    Description = "Yeni post",
+                    ImageURL ="Url1",
+                    Latitude = "2",
+                    Longtitude ="2",
+                    Like =true,
+                    UserId = 2
+                }
+            );
+            modelBuilder.Entity<User>().HasData(
+                new User
+                {
+                    Id = 1,
+                    Name = "Hilal",
+                    SurName = "BAYRAK",
+                    GenderId = 1,
+                    AccountId = 1
+                },
+                   new User
+                {
+                    Id = 2,
+                    Name = "Mustafa",
+                    SurName = "İNCİK",
+                    GenderId = 2,
+                    AccountId = 2
+                }
+            );
         }
 
     }

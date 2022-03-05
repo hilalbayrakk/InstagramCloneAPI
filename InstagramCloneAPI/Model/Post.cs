@@ -1,6 +1,6 @@
 namespace InstagramCloneAPI.Model
 {
- public class Post
+    public class Post
     {
         public int Id { get; set; }
         public DateTime AddedDate { get; set; }
@@ -11,9 +11,9 @@ namespace InstagramCloneAPI.Model
         public bool Like { get; set; }
         public int UserId { get; set; }
         public virtual User User { get; set; }
-        
 
-         public virtual ICollection<User>Users { get; set; }
-         public virtual ICollection<Comment> Comments { get; set; }
+
+        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }
