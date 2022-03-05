@@ -1,6 +1,6 @@
 namespace InstagramCloneAPI.Interfaces
 {
-    public class IGenderService
+    public interface IGenderService
     {
         
     }
