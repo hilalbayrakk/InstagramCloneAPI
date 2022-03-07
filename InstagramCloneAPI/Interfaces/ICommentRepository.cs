@@ -8,5 +8,9 @@ namespace InstagramCloneAPI.Interfaces
     Task<Comment> UpdateComment(Comment comment);
     Task DeleteComment(Comment prodcommentuct);
     Task<List<Comment>> GetAllComment();
+    Task<Comment> GetCommentById (int id);
+    Task<List<Comment>>GetCommentByPostId(int postId);
+    Task<List<Comment>>GetCommentByUserId(int userId);
+   
     }
 }

@@ -27,7 +27,7 @@ namespace InstagramCloneAPI.Repository
 
         public async Task<List<Comment>> GetAllComment()
         {
-            return await _context.Set<Comment>().ToListAsync();
+            return await _context.Comments.ToListAsync();
         }
 
         public async Task<Comment> UpdateComment(Comment comment)
@@ -36,5 +36,20 @@ namespace InstagramCloneAPI.Repository
             await _context.SaveChangesAsync();
             return comment;
         }
+        async Task<Comment> ICommentRepository.GetCommentById(int id)
+        {
+            return await _context.Comments.FirstOrDefaultAsync(c=>c.Id == id);
+        }
+
+        public async Task<List<Comment>> GetCommentByPostId(int postId)
+        {
+            return await _context.Comments.Where(c => c.PostId == postId).ToListAsync();
+        }
+
+        public async Task<List<Comment>> GetCommentByUserId(int userId)
+        {
+            return await _context.Comments.Where(c => c.UserId == userId).ToListAsync();
+        }
+
     }
 }

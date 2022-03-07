@@ -9,7 +9,8 @@ namespace InstagramCloneAPI.Model
         public string Longtitude { get; set; }
         public string Latitude { get; set; }
         public bool Like { get; set; }
-      
+        public int UserId { get; set; }
+        public User User { get; set; }
 
 
         public virtual ICollection<User> Users { get; set; }

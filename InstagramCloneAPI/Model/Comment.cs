@@ -8,7 +8,6 @@ namespace InstagramCloneAPI.Model
         public DateTime CommentDate { get; set; }
         public int UserId { get; set; }
         public virtual User User { get; set; }
-
         public int PostId { get; set; }
         public Post Post { get; set; }
 

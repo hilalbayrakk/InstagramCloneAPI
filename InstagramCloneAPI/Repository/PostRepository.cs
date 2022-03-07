@@ -1,3 +1,4 @@
+using System;
 using InstagramCloneAPI.Context;
 using InstagramCloneAPI.Interfaces;
 using InstagramCloneAPI.Model;
@@ -34,11 +35,18 @@ namespace InstagramCloneAPI.Repository
 
         public async Task<List<Post>> GetAllPost()
         {
-            return await _context.Set<Post>().ToListAsync();
+            return await _context.Posts.ToListAsync();
         }
 
+       public async Task<Post> GetById(int postId)
+        {
+            return await _context.Posts.FirstOrDefaultAsync(p => p.Id == postId);
+        }
 
-
+       public async Task<List<Post>>GetAllPostByUserName(string userName)
+        {
+            return await _context.Posts.Where(p => p.User.Name  == userName).ToListAsync();
+        }
     }
 
 
