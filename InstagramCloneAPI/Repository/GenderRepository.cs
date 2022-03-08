@@ -35,5 +35,21 @@ namespace InstagramCloneAPI.Repository
             await _context.SaveChangesAsync();
             return gender;
         }
+        public async Task<Gender> GetGenderById(int genderId)
+        {
+            return await _context.Genders.SingleOrDefaultAsync(x => x.Id == genderId);
+        }
+
+        public async Task<List<Gender>> GetGenderByName(string genderName)
+        {
+            return await _context.Genders.Where(x => x.Name == genderName).ToListAsync();
+        }
+
+        public async Task<List<Gender>> GetGenderByUserId(int userId)
+        {
+            return await _context.Genders.Where(x=>x.UserId == userId).ToListAsync();
+        }
+
+        
     }
 }

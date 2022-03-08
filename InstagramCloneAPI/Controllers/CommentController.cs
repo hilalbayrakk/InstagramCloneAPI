@@ -1,6 +1,6 @@
 namespace InstagramCloneAPI.Controllers
 {
-    public class CommnetController
+    public class CommentController
     {
         
     }
