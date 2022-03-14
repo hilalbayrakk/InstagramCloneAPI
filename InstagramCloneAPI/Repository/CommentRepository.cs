@@ -36,7 +36,7 @@ namespace InstagramCloneAPI.Repository
             await _context.SaveChangesAsync();
             return comment;
         }
-        async Task<Comment> ICommentRepository.GetCommentById(int id)
+        public async Task<Comment>GetCommentById(int id)
         {
             return await _context.Comments.FirstOrDefaultAsync(c=>c.Id == id);
         }
