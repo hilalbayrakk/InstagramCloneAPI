@@ -45,7 +45,7 @@ namespace InstagramCloneAPI.Repository
 
        public async Task<List<Post>>GetAllPostByUserName(string userName)
         {
-            return await _context.Posts.Where(p => p.User.Name  == userName).ToListAsync();
+            return await _context.Posts.Where(p => p.User.UserName  == userName).ToListAsync();
         }
     }
 

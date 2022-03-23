@@ -60,8 +60,12 @@ namespace InstagramCloneAPI.Context
             modelBuilder.Entity<User>(entity =>
             {
                 entity.HasKey(e => e.Id);
-                entity.Property(e => e.Name).IsRequired();
-                entity.Property(e => e.SurName).IsRequired();
+                entity.Property(e => e.UserName).IsRequired();
+                entity.Property(e => e.FirstName).IsRequired();
+                 entity.Property(e => e.LastName).IsRequired();
+                entity.Property(e => e.Email).IsRequired();
+                 entity.Property(e => e.Password).IsRequired();
+                entity.Property(e => e.GsmNumber).IsRequired();
                 entity.Property(e => e.BirthDate);
                 entity.HasOne(p => p.Gender).WithMany(c => c!.Users).HasForeignKey(p => p.GenderId);
                 entity.HasOne(p => p.Account).WithMany(c => c!.Users).HasForeignKey(p => p.AccountId);
@@ -143,16 +147,24 @@ namespace InstagramCloneAPI.Context
                 new User
                 {
                     Id = 1,
-                    Name = "Hilal",
-                    SurName = "BAYRAK",
+                    UserName = "hilalbayrak",
+                    FirstName = "Hilal",
+                    LastName = "BAYRAK",
+                    Email = "hilalbayrak@gmail.com",
+                    Password ="123456",
+                    GsmNumber = "05308965454",
                     GenderId = 1,
                     AccountId = 1
                 },
                    new User
                 {
-                    Id = 2,
-                    Name = "Mustafa",
-                    SurName = "İNCİK",
+                    Id = 1,
+                    UserName = "koraybayrak",
+                    FirstName = "Koray",
+                    LastName = "BAYRAK",
+                    Email = "koraybayrak@gmail.com",
+                    Password ="654321",
+                    GsmNumber = "05357615454",
                     GenderId = 2,
                     AccountId = 2
                 }
