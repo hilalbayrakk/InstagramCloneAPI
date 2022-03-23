@@ -29,7 +29,7 @@ namespace InstagramCloneAPI.Context
                 entity.Property(e => e.Password).IsRequired();
                 entity.Property(e => e.IsBlocked);
                 entity.Property(e => e.IsProvided);
-                entity.Property(e => e.IsVisibility);
+                entity.Property(e => e.Visibility);
             });
 
             modelBuilder.Entity<Comment>(entity =>
@@ -75,7 +75,7 @@ namespace InstagramCloneAPI.Context
                     Password = "01234",
                     IsBlocked = false,
                     IsProvided = true,
-                    IsVisibility = true
+                    Visibility = true
                 },
                 new Account
                 {
@@ -84,7 +84,7 @@ namespace InstagramCloneAPI.Context
                     Password = "56789",
                     IsBlocked = false,
                     IsProvided = true,
-                    IsVisibility = true
+                    Visibility = true
                 }
             );
             modelBuilder.Entity<Comment>().HasData(
